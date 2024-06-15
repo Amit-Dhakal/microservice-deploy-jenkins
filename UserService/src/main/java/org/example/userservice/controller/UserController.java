@@ -2,6 +2,7 @@ package org.example.userservice.controller;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.example.userservice.DTO.ProductDTO;
+import org.example.userservice.DTO.RatingDTO;
 import org.example.userservice.DTO.UserDTO;
 import org.example.userservice.mapper.Mapper;
 import org.example.userservice.model.User;
@@ -54,15 +55,12 @@ public class UserController {
         System.out.println("URI ::"+uri);
         System.out.println("CONTEXTPATH ::"+contextPath);
         ArrayList<ProductDTO> productList = restTemplate.getForObject(uri + contextPath + "/get-product",ArrayList.class);
-
-
-
-      //  ServiceInstance serviceInstanceRating=loadBalancerClient.choose("HOTELRATING");
-     //   String uriRating = serviceInstanceRating.getUri().toString();
-    //    String contextPathRating = serviceInstanceRating.getMetadata().get("configPath");
+        ServiceInstance serviceInstanceRating=loadBalancerClient.choose("HOTELRATING");
+        String uriRating = serviceInstanceRating.getUri().toString();
+        String contextPathRating = serviceInstanceRating.getMetadata().get("configPath");
       //  ArrayList<RatingDTO> ratingList=restTemplate.getForObject(uriRating+contextPathRating+"/get-rating-data",ArrayList.class);
-        //   ArrayList<ProductDTO> productList= restTemplate.getForObject("http://localhost:5002/get-products",ArrayList.class);
-    //    ArrayList<RatingDTO> ratingList=restTemplate.getForObject("http://localhost:9093/get-rating-data",ArrayList.class);
+           ArrayList<ProductDTO> productList= restTemplate.getForObject("http://localhost:5002/get-products",ArrayList.class);
+        ArrayList<RatingDTO> ratingList=restTemplate.getForObject("http://localhost:9093/get-rating-data",ArrayList.class);
         userDTO.setProductList(productList);
        //userDTO.setRatingList(ratingList);
         return userDTO;
