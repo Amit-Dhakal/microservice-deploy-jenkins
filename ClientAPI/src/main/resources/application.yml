@@ -1,23 +1,6 @@
 spring:
   application:
-    name: ClientAPI
+    name: user
 
 server:
-  port: 9999
-
-Client-Api:
-  eureka:
-    enabled: false
-
-  cloud:
-    loadbalancer:
-      clients:
-        Client-Api:
-          configuration:
-            serviceInstanceList:
-              instances:
-                - uri: http://localhost:9092
-                - uri: http://localhost:5002
-          healthCheck:
-            interval: 15000
-
+  port: 8888

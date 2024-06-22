@@ -2,8 +2,6 @@ package org.example.userservice.mapper;
 
 import org.example.userservice.DTO.UserDTO;
 import org.example.userservice.model.User;
-
-
 public class Mapper {
     public UserDTO entityToDTO(User user){
         UserDTO userDTO=new UserDTO();

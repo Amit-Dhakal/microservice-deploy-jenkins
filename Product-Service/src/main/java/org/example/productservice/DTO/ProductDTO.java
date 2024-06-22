@@ -6,7 +6,6 @@ public class ProductDTO {
     private String product_name;
     private BigInteger product_price;
     private int quantity;
-
     public int getId() {
         return id;
     }
