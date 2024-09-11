@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 @RestController
 @RequestMapping("/userservice")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -36,9 +37,10 @@ public class UserController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
     @GetMapping("/get-user-data")
-    public ResponseEntity<List<User>> getUserData(){
+    public List<User> getUserData(){
         List<User> userList=userRepo.findAll();
-      return new ResponseEntity<>(userList,HttpStatus.ACCEPTED);
+     // return new ResponseEntity<>(userList,HttpStatus.ACCEPTED);
+        return userList;
     }
     @GetMapping("/user-product")
    @CircuitBreaker(name="productservice",fallbackMethod = "userFallback")
@@ -65,6 +67,14 @@ public class UserController {
         return message;
     }
 }
+
+
+
+
+
+//frontend to save user product ratring details in angular
+//
+
 
 
 

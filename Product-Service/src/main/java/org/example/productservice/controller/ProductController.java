@@ -30,11 +30,9 @@ public class ProductController {
         List<Product> productList=productService.findAll();
        List<ProductDTO> productListDTO= productList.stream().map(ProductMappper::productDTOtoEntity).collect(Collectors.toList());
         return new ResponseEntity<>(productListDTO,HttpStatus.CREATED);
-
     }
     @GetMapping("/get-user-product")
     public String getUsersProducts(){
-
         return "Hello user product";
     }
 

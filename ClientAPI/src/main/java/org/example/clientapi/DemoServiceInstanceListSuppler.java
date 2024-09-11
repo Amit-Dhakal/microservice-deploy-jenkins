@@ -25,8 +25,6 @@ class DemoServiceInstanceListSuppler implements ServiceInstanceListSupplier {
 }
 
 
-
-
 //provide 3 instances here
 //used by userapplication
 //

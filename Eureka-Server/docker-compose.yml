@@ -1,0 +1,7 @@
+version:
+  services:
+   ports:
+     environments:
+       MYSQL_USERNAME:
+MYSQL_PASSWORD:
+MYSQL_ROOTPASSWORD:
